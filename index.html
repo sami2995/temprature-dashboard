@@ -25,6 +25,13 @@
       { name: "New York", celsius: -2 },
       { name: "London", celsius: 5 },
     ];
+
+    const toFahrenheit = c => (c * 9) / 5 + 32;
+    const getAdvisory = c =>
+      c <= 0 ? "Freezing ❄️" :
+      c <= 10 ? "Cold 🧥" :
+      c <= 20 ? "Mild 🌤️" :
+      c <= 30 ? "Warm ☀️" : "Hot 🔥";
     </script>
     
 </body>
