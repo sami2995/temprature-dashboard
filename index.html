@@ -12,20 +12,23 @@
     <div class="container py-5">
       <h1 class="mb-4 text-center">🌡️ Real-Time Temperature Dashboard</h1>
       <div id="dashboard" class="row g-4"></div>
-    </div>>
+    </div>
 
     <script>
 
 
         const cities = [
      { name: " Addis Ababa", celsius: 20 },
+     { name: "New York", celsius: -2 },
+     { name: "London", celsius: 5 },
+      { name: "Beijing", celsius: 5 },
       { name: "Toronto", celsius: -5 },
       { name: "Berlin", celsius: 7 },
       { name: "Madrid", celsius: 18 },
       { name: "Dubai", celsius: 35 },
-      { name: "Tokyo", celsius: 25 }
-      { name: "New York", celsius: -2 },
-      { name: "London", celsius: 5 },
+      { name: "Tokyo", celsius: 25 },
+      
+      
     ];
 
 
@@ -42,13 +45,13 @@
 const dashboard = document.getElementById('dashboard');
 
     cities.forEach(city => {
-      const fahrenheit = toFahrenheit(city.celsius).toFixed(1);
+      const fahrenheit = toFahrenheit(city.celsius);
       const advisory = getAdvisory(city.celsius);
 
       const col = document.createElement("div");
       col.className = "col-md-6 col-lg-4";
 
-      col.innerHTML = 
+      col.innerHTML = `
         <div class="card shadow-sm border-primary h-100">
           <div class="card-body">
             <h5 class="card-title">${city.name}</h5>
@@ -56,7 +59,7 @@ const dashboard = document.getElementById('dashboard');
             <p class="card-text fw-semibold">📝 Advisory: ${advisory}</p>
           </div>
         </div>
-      ;
+       ` ;
 
       dashboard.appendChild(col);
     });
